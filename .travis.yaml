@@ -1,0 +1,27 @@
+language: java
+
+# Specify the JDK versions to be tested
+jdk:
+  - openjdk11
+
+# Only build on pushes to main or pull requests
+branches:
+  only:
+    - main
+
+# Run the Maven build
+script:
+  - mvn clean install
+
+# Cache Maven dependencies to speed up builds
+cache:
+  directories:
+    - $HOME/.m2
+
+# Notifications (optional)
+notifications:
+  email:
+    recipients:
+      - dissanahmed@gmail.com
+    on_success: never
+    on_failure: always
